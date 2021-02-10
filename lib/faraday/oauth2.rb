@@ -2,9 +2,9 @@ require 'faraday'
 require 'base64'
 
 # @private
-module TubeFaradayMiddleware
+module LinkedInFaradayMiddleware
   # @private
-  class TubeMogulAPIOAuth2 < Faraday::Middleware
+  class LinkedInAPIOAuth2 < Faraday::Middleware
     def call(env)
 
       # TODO: if @access_token expired, refresh

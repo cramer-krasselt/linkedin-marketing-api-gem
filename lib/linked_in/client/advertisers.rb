@@ -1,4 +1,4 @@
-module TubeMogulAPI
+module LinkedInAPI
   class Client
   	# Defines methods related to Ads
     module Advertisers

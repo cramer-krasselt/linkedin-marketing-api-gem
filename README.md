@@ -8,12 +8,12 @@ This works for my purposes currently, but is obviously a use-at-own-risk piece o
 ## Usage
 
 ```ruby
-require 'linkedin'
+require 'linked_in'
 
 LinkedInAPI.configure do |config|
     # Required
-    config.client_id		= ENV['TUBE_CLIENT_ID']
-    config.client_secret	= ENV['TUBE_CLIENT_SECRET']
+    config.client_id		= ENV['LINKEDIN_CLIENT_ID']
+    config.client_secret	= ENV['LINKEDIN_CLIENT_SECRET']
 end
 
 auth_result = LinkedInAPI.get_access_token

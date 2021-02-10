@@ -1,4 +1,4 @@
-module TubeMogulAPI
+module LinkedInAPI
   # Defines HTTP request methods
   module OAuth
     # Return URL for OAuth authorization

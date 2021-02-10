@@ -1,7 +1,7 @@
 require 'faraday'
 
 # @private
-module TubeFaradayMiddleware
+module LinkedInFaradayMiddleware
   # @private
   class LoudLogger < Faraday::Middleware
       extend Forwardable

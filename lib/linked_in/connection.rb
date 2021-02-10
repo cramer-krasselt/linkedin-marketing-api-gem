@@ -1,7 +1,7 @@
 require 'faraday_middleware'
 Dir[File.expand_path('../../faraday/*.rb', __FILE__)].each{|f| require f}
 
-module TubeMogulAPI
+module LinkedInAPI
   # @private
   module Connection
     private
@@ -14,7 +14,7 @@ module TubeMogulAPI
       }.merge(connection_options)
 
       Faraday::Connection.new(options) do |connection|
-        connection.use TubeFaradayMiddleware::TubeMogulAPIOAuth2, client_id, client_secret, access_token
+        connection.use LinkedInFaradayMiddleware::LinkedInAPIOAuth2, client_id, client_secret, access_token
         connection.use Faraday::Request::UrlEncoded
         connection.use FaradayMiddleware::Mashify unless raw
         unless raw
@@ -22,8 +22,8 @@ module TubeMogulAPI
           when 'json' then connection.use Faraday::Response::ParseJson
           end
         end
-        connection.use TubeFaradayMiddleware::RaiseHttpException
-        connection.use TubeFaradayMiddleware::LoudLogger if loud_logger
+        connection.use LinkedInFaradayMiddleware::RaiseHttpException
+        connection.use LinkedInFaradayMiddleware::LoudLogger if loud_logger
         connection.adapter(adapter)
       end
     end

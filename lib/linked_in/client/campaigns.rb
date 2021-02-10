@@ -1,4 +1,4 @@
-module TubeMogulAPI
+module LinkedInAPI
   class Client
     module Campaigns
       def campaigns(advertiser_id = nil,
