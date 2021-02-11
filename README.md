@@ -14,13 +14,10 @@ LinkedInAPI.configure do |config|
     # Required
     config.client_id		= ENV['LINKEDIN_CLIENT_ID']
     config.client_secret	= ENV['LINKEDIN_CLIENT_SECRET']
+    config.access_token     = ENV['LINKEDIN_ACCESS_TOKEN']
 end
 
-auth_result = LinkedInAPI.get_access_token
-#<Hashie::Mash ... >
-
-#client = LinkedInAPI::Client.new(access_token: auth_result.token)
-client = LinkedInAPI::Client.new(access_token: auth_result.access_token)
+client = LinkedInAPI::Client.new
 #<LinkedInAPI::Client ... >
 
 client.campaigns

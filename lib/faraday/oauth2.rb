@@ -7,8 +7,6 @@ module LinkedInFaradayMiddleware
   class LinkedInAPIOAuth2 < Faraday::Middleware
     def call(env)
 
-      # TODO: if @access_token expired, refresh
-
       if env[:method] == :get or env[:method] == :delete
         if env[:url].query.nil?
           query = {}
@@ -30,7 +28,6 @@ module LinkedInFaradayMiddleware
           env[:body] = env[:body].merge(:client_id => @client_id)
         end
       end
-
 
       @app.call env
     end

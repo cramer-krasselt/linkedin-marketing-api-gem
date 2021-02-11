@@ -12,12 +12,12 @@ module LinkedInAPI
 
     # Return an access token from authorization
     # https://docs.microsoft.com/en-us/linkedin/shared/authentication/client-credentials-flow?context=linkedin/context
-    def get_access_token(options={})
-      options[:grant_type] ||= "client_credentials"
-      #options[:redirect_uri] ||= self.redirect_uri
-      params = access_token_params.merge(options)
-      post("oauth/" + Configuration::API_PREFIX + "accessToken", params, signature=false, raw=false, no_response_wrapper=true)
-    end
+    # def get_access_token(options={})
+    #   options[:grant_type] ||= "client_credentials"
+    #   #options[:redirect_uri] ||= self.redirect_uri
+    #   params = access_token_params.merge(options)
+    #   post("oauth/" + Configuration::API_PREFIX + "accessToken", params, signature=false, raw=false, no_response_wrapper=true)
+    # end
 
     private
 

@@ -56,7 +56,7 @@ module LinkedInAPI
     #
     # @note There is no reason to use any other endpoint at this time
     # https://www.linkedin.com/oauth/v2/accessToken
-    DEFAULT_ENDPOINT = 'https://www.linkedin.com/'.freeze
+    DEFAULT_ENDPOINT = 'https://api.linkedin.com/'.freeze
 
     API_PREFIX = "v2/"
 
