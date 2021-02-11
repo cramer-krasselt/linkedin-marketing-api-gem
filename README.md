@@ -19,7 +19,8 @@ end
 auth_result = LinkedInAPI.get_access_token
 #<Hashie::Mash ... >
 
-client = LinkedInAPI::Client.new(access_token: auth_result.token)
+#client = LinkedInAPI::Client.new(access_token: auth_result.token)
+client = LinkedInAPI::Client.new(access_token: auth_result.access_token)
 #<LinkedInAPI::Client ... >
 
 client.campaigns

@@ -15,7 +15,7 @@ module LinkedInAPI
         options.merge!(timezone: timezone) if timezone
         options.merge!(bucketed_by: bucketed_by) if bucketed_by
 
-        get(Configuration::REPORTING_API_PREFIX + "reporting/ads/#{ad_id}", options)
+        get(Configuration::API_PREFIX + "reporting/ads/#{ad_id}", options)
       end
     end
   end

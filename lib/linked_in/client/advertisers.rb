@@ -17,7 +17,7 @@ module LinkedInAPI
         options.merge!(product_category_id: product_category_id) if product_category_id
         options.merge!(status: status) if status
 
-        get(Configuration::TRAFFICKING_API_PREFIX + "trafficking/advertisers", options)
+        get(Configuration::API_PREFIX + "trafficking/advertisers", options)
       end
     end
   end

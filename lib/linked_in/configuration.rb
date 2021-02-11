@@ -55,11 +55,10 @@ module LinkedInAPI
     # The endpoint that will be used to connect if none is set
     #
     # @note There is no reason to use any other endpoint at this time
-    DEFAULT_ENDPOINT = 'https://api.tubemogul.com/'.freeze
+    # https://www.linkedin.com/oauth/v2/accessToken
+    DEFAULT_ENDPOINT = 'https://www.linkedin.com/'.freeze
 
-    TRAFFICKING_API_PREFIX = "v3/"
-
-    REPORTING_API_PREFIX = "v2/"
+    API_PREFIX = "v2/"
 
     DEFAULT_TIMEZONE = 'America/Chicago'
 

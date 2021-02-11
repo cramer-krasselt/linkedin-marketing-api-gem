@@ -18,11 +18,11 @@ module LinkedInAPI
         options.merge!(offset: offset) if offset
         options.merge!(sort_by: sort_by) if sort_by
 
-        get(Configuration::TRAFFICKING_API_PREFIX + "trafficking/campaigns", options)
+        get(Configuration::API_PREFIX + "trafficking/campaigns", options)
       end
 
       def campaign(campaign_id)
-        get(Configuration::TRAFFICKING_API_PREFIX + "trafficking/campaigns/#{campaign_id}")
+        get(Configuration::API_PREFIX + "trafficking/campaigns/#{campaign_id}")
       end
 
       def campaign_ads(campaign_id,
@@ -43,7 +43,7 @@ module LinkedInAPI
         options.merge!(sort: sort) if sort
         options.merge!(order: order) if order
 
-        get(Configuration::REPORTING_API_PREFIX + "reporting/campaigns/#{campaign_id}/ads", options)
+        get(Configuration::API_PREFIX + "reporting/campaigns/#{campaign_id}/ads", options)
       end
     end
   end
