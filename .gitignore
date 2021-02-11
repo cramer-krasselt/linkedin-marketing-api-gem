@@ -13,3 +13,6 @@ log/*
 pkg/*
 .idea/*
 *.swp
+
+# vars
+.envrc
