@@ -4,10 +4,8 @@ module LinkedInAPI
   # @note All methods have been separated into modules and follow the same grouping used in http://instagram.com/developer/
   # @see http://instagram.com/developer/
   class Client < API
-    Dir[File.expand_path('../client/*.rb', __FILE__)].each{|f| require f}
+    Dir[File.expand_path('../client/*.rb', __FILE__)].each { |f| require f }
 
-    include LinkedInAPI::Client::Campaigns
-    include LinkedInAPI::Client::Ads
-    include LinkedInAPI::Client::Advertisers
+    include LinkedInAPI::Client::Profiles
   end
 end
