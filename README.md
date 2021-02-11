@@ -20,6 +20,6 @@ end
 client = LinkedInAPI::Client.new
 #<LinkedInAPI::Client ... >
 
-client.campaigns
+client.me
 #<Hashie::Mash ... >
 ```
