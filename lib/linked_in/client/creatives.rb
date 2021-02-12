@@ -71,7 +71,9 @@ module LinkedInAPI
         }
 
         get(Configuration::API_PREFIX + "adCreativesV2", options, false, false,
-            no_response_wrapper(), sign_requests, headers: { "X-Restli-Protocol-Version" => "2.0.0" })
+            no_response_wrapper(), sign_requests,
+            headers: { "X-Restli-Protocol-Version" => "2.0.0" },
+            request: { params_encoder: DoNotEncoder} )
       end
 
       private

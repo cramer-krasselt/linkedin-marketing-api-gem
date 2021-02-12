@@ -11,12 +11,24 @@ module LinkedInAPI
     include LinkedInAPI::Client::CampaignGroups
     include LinkedInAPI::Client::Creatives
 
-    def generate_search_options(criteria = "", values = [])
-      values.map.with_index(0) do |value, index|
-        { "search.#{criteria}.values[#{index}]" => value }
-      end.reduce(options={}) do |options, query|
-        options.merge(query)
+    private
+
+      def generate_search_options(criteria = "", values = [])
+        values.map.with_index(0) do |value, index|
+          { "search.#{criteria}.values[#{index}]" => value }
+        end.reduce(options = {}) do |options, query|
+          options.merge(query)
+        end
       end
-    end
+
+      class DoNotEncoder
+        def self.encode(params)
+          buffer = ''
+          params.each do |key, value|
+            buffer << "#{key}=#{value}&"
+          end
+          return buffer.chop
+        end
+      end
   end
 end

@@ -1,10 +1,12 @@
 require 'faraday_middleware'
+require 'active_support'
 Dir[File.expand_path('../../faraday/*.rb', __FILE__)].each { |f| require f }
 
 module LinkedInAPI
   # @private
   module Connection
     private
+
 
       def connection(raw = false, request_connection_options = {})
         options = {
@@ -13,7 +15,7 @@ module LinkedInAPI
           :url     => endpoint,
         }.merge(connection_options)
 
-        options[:headers] = options[:headers].merge(request_connection_options[:headers])
+        options = options.deep_merge(request_connection_options)
 
         Faraday::Connection.new(options) do |connection|
           connection.use LinkedInFaradayMiddleware::LinkedInAPIOAuth2, client_id, client_secret, access_token
