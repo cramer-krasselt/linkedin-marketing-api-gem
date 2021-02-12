@@ -23,6 +23,16 @@ module LinkedInAPI
 
       end
 
+      def account_campaigns(account_ids = [])
+        mapped_account_ids = account_ids.map do |account_id|
+          account_id_to_urn(account_id)
+        end
+
+        account_id_query = generate_search_options("account", mapped_account_ids)
+
+        search_campaigns(account_id_query)
+      end
+
       def campaign_group_campaigns(campaign_group_ids = [])
         mapped_campaign_group_ids = campaign_group_ids.map do |campaign_group_id|
           campaign_group_id_to_urn(campaign_group_id)
@@ -48,9 +58,6 @@ module LinkedInAPI
         get(Configuration::API_PREFIX + "adCampaignsV2", options)
       end
 
-      def campaign_group_id_to_urn(campaign_group_id)
-        "urn:li:sponsoredCampaignGroup:#{campaign_group_id}"
-      end
     end
   end
 end
