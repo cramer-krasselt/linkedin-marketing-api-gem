@@ -7,5 +7,6 @@ module LinkedInAPI
     Dir[File.expand_path('../client/*.rb', __FILE__)].each { |f| require f }
 
     include LinkedInAPI::Client::Profiles
+    include LinkedInAPI::Client::AdAccounts
   end
 end
