@@ -37,10 +37,9 @@ module LinkedInAPI
       def account_id_to_urn(account_id)
         "urn:li:sponsoredAccount:#{account_id}"
       end
-  
+
       def campaign_group_id_to_urn(campaign_group_id)
         "urn:li:sponsoredCampaignGroup:#{campaign_group_id}"
-      end  
-    end
+      end
   end
 end
