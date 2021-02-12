@@ -9,6 +9,7 @@ module LinkedInAPI
     include LinkedInAPI::Client::Profiles
     include LinkedInAPI::Client::AdAccounts
     include LinkedInAPI::Client::CampaignGroups
+    include LinkedInAPI::Client::Campaigns
     include LinkedInAPI::Client::Creatives
 
     def generate_search_options(criteria = "", values = [])
