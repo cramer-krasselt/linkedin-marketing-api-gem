@@ -7,29 +7,29 @@ module LinkedInAPI
   module Request
     # Perform an HTTP GET request
     def get(path, options = {}, signature = false, raw = false, no_response_wrapper = no_response_wrapper(), signed = sign_requests, request_connection_options = {})
-      request(:get, path, options, signature, raw, no_response_wrapper, signed)
+      request(:get, path, options, signature, raw, no_response_wrapper, signed, request_connection_options)
     end
 
     # Perform an HTTP POST request
     def post(path, options = {}, signature = false, raw = false, no_response_wrapper = no_response_wrapper(), signed = sign_requests, request_connection_options = {})
-      request(:post, path, options, signature, raw, no_response_wrapper, signed)
+      request(:post, path, options, signature, raw, no_response_wrapper, signed, request_connection_options)
     end
 
     # Perform an HTTP PUT request
     def put(path, options = {}, signature = false, raw = false, no_response_wrapper = no_response_wrapper(), signed = sign_requests, request_connection_options = {})
-      request(:put, path, options, signature, raw, no_response_wrapper, signed)
+      request(:put, path, options, signature, raw, no_response_wrapper, signed, request_connection_options)
     end
 
     # Perform an HTTP DELETE request
     def delete(path, options = {}, signature = false, raw = false, no_response_wrapper = no_response_wrapper(), signed = sign_requests, request_connection_options = {})
-      request(:delete, path, options, signature, raw, no_response_wrapper, signed)
+      request(:delete, path, options, signature, raw, no_response_wrapper, signed, request_connection_options)
     end
 
     private
 
     # Perform an HTTP request
     def request(method, path, options, signature = false, raw = false, no_response_wrapper = false, signed = sign_requests, request_connection_options = {})
-      response = connection(raw).send(method) do |request|
+      response = connection(raw, request_connection_options).send(method) do |request|
         case method
         when :get, :delete
           request.url(URI.encode(path), options)
