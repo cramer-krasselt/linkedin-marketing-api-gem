@@ -22,6 +22,8 @@ module LinkedInAPI
         end
       end
 
+      # source:
+      # https://stackoverflow.com/a/22288388
       class DoNotEncoder
         def self.encode(params)
           buffer = ''
