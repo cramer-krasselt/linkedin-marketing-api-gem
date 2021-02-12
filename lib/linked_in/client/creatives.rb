@@ -64,10 +64,12 @@ module LinkedInAPI
       # https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-creatives#batch-get-ad-creatives
       # e.g. GET https://api.linkedin.com/v2/adCreativesV2?ids=List(47771456,47771492)
       # must include this header: X-Restli-Protocol-Version: 2.0.0
-      def ad_creatives(ad_ids)
+      #
+      # ad_ids are creative_ids
+      def ad_creatives(creative_ids)
         # Optionals
         options = {
-          ids: "List(#{ad_ids.join(',')})",
+          ids: "List(#{creative_ids.join(',')})",
         }
 
         get(Configuration::API_PREFIX + "adCreativesV2", options, false, false,
