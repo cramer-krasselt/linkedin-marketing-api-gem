@@ -9,6 +9,7 @@ module LinkedInAPI
     include LinkedInAPI::Client::Profiles
     include LinkedInAPI::Client::AdAccounts
     include LinkedInAPI::Client::CampaignGroups
+    include LinkedInAPI::Client::Campaigns
     include LinkedInAPI::Client::Creatives
 
     private
