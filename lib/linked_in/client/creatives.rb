@@ -77,12 +77,6 @@ module LinkedInAPI
             headers: { "X-Restli-Protocol-Version" => "2.0.0" },
             request: { params_encoder: DoNotEncoder } )
       end
-
-      private
-
-      def campaign_id_to_urn(campaign_id)
-        "urn:li:sponsoredCampaign:#{campaign_id}"
-      end
     end
   end
 end

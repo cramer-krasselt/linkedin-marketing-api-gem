@@ -11,12 +11,21 @@ module LinkedInAPI
     include LinkedInAPI::Client::CampaignGroups
     include LinkedInAPI::Client::Campaigns
     include LinkedInAPI::Client::Creatives
+    include LinkedInAPI::Client::AdAnalytics
 
     private
 
       def generate_search_options(criteria = "", values = [])
         values.map.with_index(0) do |value, index|
           { "search.#{criteria}.values[#{index}]" => value }
+        end.reduce(options = {}) do |options, query|
+          options.merge(query)
+        end
+      end
+
+      def generate_filter_options(criteria = "", values = [])
+        values.map.with_index(0) do |value, index|
+          { "#{criteria}[#{index}]" => value }
         end.reduce(options = {}) do |options, query|
           options.merge(query)
         end
@@ -40,6 +49,10 @@ module LinkedInAPI
 
       def campaign_group_id_to_urn(campaign_group_id)
         "urn:li:sponsoredCampaignGroup:#{campaign_group_id}"
+      end
+
+      def campaign_id_to_urn(campaign_id)
+        "urn:li:sponsoredCampaign:#{campaign_id}"
       end
   end
 end
