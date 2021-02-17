@@ -27,5 +27,10 @@ module LinkedInAPI
     include Connection
     include Request
     include OAuth
+
+    def refresh_access_token!
+      self.refresh_token = refresh_access_token
+      nil
+    end
   end
 end

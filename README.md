@@ -1,4 +1,5 @@
 # Linkedin Marketing API - Unofficial gem
+
 Quick hack on the Instagram Gem, adapted for the Linkedin Marketing API.
 
 Not endpoint-complete by a far cry, not even tested at all.
@@ -11,15 +12,19 @@ This works for my purposes currently, but is obviously a use-at-own-risk piece o
 require 'linked_in'
 
 LinkedInAPI.configure do |config|
-    # Required
-    config.client_id		= ENV['LINKEDIN_CLIENT_ID']
-    config.client_secret	= ENV['LINKEDIN_CLIENT_SECRET']
-    config.access_token     = ENV['LINKEDIN_ACCESS_TOKEN']
+  # Required
+  config.client_id     = ENV['LINKEDIN_CLIENT_ID']
+  config.client_secret = ENV['LINKEDIN_CLIENT_SECRET']
+  config.access_token  = ENV['LINKEDIN_ACCESS_TOKEN']
+  config.refresh_token = ENV['LINKEDIN_REFRESH_TOKEN']
 end
 
+LinkedInAPI.refresh_access_token!
+=> nil
+
 client = LinkedInAPI::Client.new
-#<LinkedInAPI::Client ... >
+=> #<LinkedInAPI::Client ... >
 
 client.me
-#<Hashie::Mash ... >
+=> #<Hashie::Mash ... >
 ```
