@@ -37,5 +37,10 @@ module LinkedInAPI
       self.refresh_token_expiry = res["refresh_token_expires_in"]
       nil
     end
+
+    # Note: relies on server time
+    def token_expired?
+      (self.access_expiry - self.access_expiry_ahead) < Time.now
+    end
   end
 end

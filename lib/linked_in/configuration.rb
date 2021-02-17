@@ -111,11 +111,6 @@ module LinkedInAPI
       yield self
     end
 
-    # Note: relies on server time
-    def token_expired?
-      (self.access_expiry - self.access_expiry_ahead) < Time.now
-    end
-
     # Create a hash of options and their values
     def options
       VALID_OPTIONS_KEYS.inject({}) do |option, key|
