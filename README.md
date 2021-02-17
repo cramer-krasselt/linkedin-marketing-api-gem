@@ -19,11 +19,11 @@ LinkedInAPI.configure do |config|
   config.refresh_token = ENV['LINKEDIN_REFRESH_TOKEN']
 end
 
-LinkedInAPI.refresh_access_token!
-=> nil
-
 client = LinkedInAPI::Client.new
 => #<LinkedInAPI::Client ... >
+  
+client.LinkedInAPI.refresh_access_token!
+=> nil
 
 client.me
 => #<Hashie::Mash ... >

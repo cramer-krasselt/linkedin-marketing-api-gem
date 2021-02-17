@@ -29,7 +29,12 @@ module LinkedInAPI
     include OAuth
 
     def refresh_access_token!
-      self.refresh_token = refresh_access_token
+      res = refresh_access_token
+      self.access_token = res["access_token"]
+      self.access_expiry = Time.now + res["expires_in"]
+
+      self.refresh_token = res["refresh_token"]
+      self.refresh_token_expiry = res["refresh_token_expires_in"]
       nil
     end
   end
