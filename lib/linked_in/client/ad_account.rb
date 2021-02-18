@@ -3,12 +3,14 @@ module LinkedInAPI
     module AdAccounts
       # https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-account-users#find-ad-accounts-by-authenticated-user
       # e.g. GET https://api.linkedin.com/v2/adAccountUsersV2?q=authenticatedUser
-      def ad_accounts(q = nil)
+      
+      # all accounts the token has access to
+      def ad_accounts(start_index = 0, page_size = Configuration::DEFAULT_PAGE_SIZE)
         options = {
           q: "authenticatedUser"
         }
-        # Optionals
-        options.merge!(q: q) if q
+
+        options.merge!(paging_params(start_index, page_size))
 
         get(Configuration::API_PREFIX + "adAccountUsersV2", options)
       end

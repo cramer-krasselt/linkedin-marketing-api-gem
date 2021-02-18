@@ -62,7 +62,7 @@ module LinkedInAPI
 
     DEFAULT_TIMEZONE = 'America/Chicago'
 
-    DEFAULT_PAGINATION_LIMIT = 50
+    DEFAULT_PAGE_SIZE = 50
 
     # The response format appended to the path and sent in the 'Accept' header if none is set
     #
