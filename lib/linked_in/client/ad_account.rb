@@ -14,6 +14,13 @@ module LinkedInAPI
 
         get(Configuration::API_PREFIX + "adAccountUsersV2", options)
       end
+
+      # one campaign
+      def get_account(account_id)
+        options = {}
+
+        get(Configuration::API_PREFIX + "adAccountsV2/#{account_id}", options)
+      end
     end
   end
 end
