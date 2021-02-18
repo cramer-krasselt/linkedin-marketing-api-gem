@@ -25,6 +25,25 @@ client = LinkedInAPI::Client.new
 client.LinkedInAPI.refresh_access_token!
 => nil
 
-client.me
+client.ad_accounts()
 => #<Hashie::Mash ... >
+
+client.account_campaign_groups({ACCOUNT_ID})
+=> #<Hashie::Mash ... >
+
+client.account_campaigns({ACCOUNT_ID})
+=> #<Hashie::Mash ... >
+
+client.campaign_creatives({CAMPAIGN_ID})
+=> #<Hashie::Mash ... >
+
+client.get_video_ad({SPONSORED_VIDEO_POST_ID})
+=> #<Hashie::Mash ... >
+
+client.account_conversions({ACCOUNT_ID})
+=> #<Hashie::Mash ... >
+
+client.campaign_ad_analytics({CAMPAIGN_ID},{START_DATE},{END_DATE},{GRANULARITY},[{PIVOT_ARRAY}],[{FIELD_ARRAY}])
+
+Supports paging with optional parameters (start_index, page_size) on list endpoints other than campaign_ad_analytics because LinkedIn does not support it on that endpoint.
 ```
