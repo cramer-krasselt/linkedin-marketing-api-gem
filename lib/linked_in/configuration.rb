@@ -7,24 +7,26 @@ module LinkedInAPI
   module Configuration
     # An array of valid keys in the options hash when configuring a {LinkedInAPI::API}
     VALID_OPTIONS_KEYS = [
-      :access_mutex,
       :access_expiry,
       :access_expiry_ahead,
+      :access_mutex,
       :access_token,
       :adapter,
       :client_id,
-      :client_secret,
       :client_ips,
+      :client_secret,
       :connection_options,
-      :scope,
-      :redirect_uri,
       :endpoint,
       :format,
-      :proxy,
-      :user_agent,
-      :no_response_wrapper,
       :loud_logger,
+      :no_response_wrapper,
+      :proxy,
+      :redirect_uri,
+      :refresh_token,
+      :refresh_token_expiry,
+      :scope,
       :sign_requests,
+      :user_agent,
     ].freeze
 
     # By default, don't set a user access token
@@ -107,11 +109,6 @@ module LinkedInAPI
     # Convenience method to allow configuration options to be set in a block
     def configure
       yield self
-    end
-
-    # Note: relies on server time
-    def token_expired?
-      (self.access_expiry - self.access_expiry_ahead) < Time.now
     end
 
     # Create a hash of options and their values
