@@ -23,7 +23,7 @@ module LinkedInAPI
       :proxy,
       :redirect_uri,
       :refresh_token,
-      :refresh_token_expiry,
+      :refresh_expiry,
       :scope,
       :sign_requests,
       :user_agent,
