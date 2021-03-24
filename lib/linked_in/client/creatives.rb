@@ -57,6 +57,15 @@ module LinkedInAPI
         get(Configuration::API_PREFIX + "adCreativesV2/#{creative_id}", options, signature = false, raw = true)
       end
 
+      # get one share (for carousel ads)
+      def get_share(share_id, projection = nil)
+        # Optionals
+        options = {}
+        options.merge!(projection: projection) if projection
+
+        get(Configuration::API_PREFIX + "shares/#{share_id}", options)
+      end
+
       # https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-creatives#batch-get-ad-creatives
       # e.g. GET https://api.linkedin.com/v2/adCreativesV2?ids=List(47771456,47771492)
       # must include this header: X-Restli-Protocol-Version: 2.0.0
