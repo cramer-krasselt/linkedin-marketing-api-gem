@@ -66,7 +66,7 @@ module LinkedInAPI
         get(Configuration::API_PREFIX + "shares/#{share_id}", options)
       end
 
-      # get one share (for carousel ads)
+      # get adinmail for type SPONSORED_INMAILS
       def get_adinmail(addinmail_id, projection = nil)
         # Optionals
         options = {}

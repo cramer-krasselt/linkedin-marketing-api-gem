@@ -40,6 +40,12 @@ client.campaign_creatives({CAMPAIGN_ID})
 client.get_video_ad({SPONSORED_VIDEO_POST_ID})
 => #<Hashie::Mash ... >
 
+client.get_share({SPONSORED_SHARE_ID})
+=> #<Hashie::Mash ... >
+
+client.get_adinmail({SPONSORED_INMAIL_ID})
+=> #<Hashie::Mash ... >
+
 client.account_conversions({ACCOUNT_ID})
 => #<Hashie::Mash ... >
 
